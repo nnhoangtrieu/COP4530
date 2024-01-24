@@ -194,7 +194,7 @@ Passenger::Passenger(const string& nm, MealType mp, const string& ffn) {
     isFreqFlyer = (ffn != "NONE"); // true only if ffn given
     freqFlyerNo = ffn;
 }
-Passenger::Passenger(const Passenger& pass) {
+Passenger::Passenger(const  Passenger& pass) {
     name = pass.name; mealPref = pass.mealPref;
     isFreqFlyer = pass.isFreqFlyer; freqFlyerNo = pass.freqFlyerNo;
 }
