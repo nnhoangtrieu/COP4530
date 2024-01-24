@@ -67,7 +67,7 @@ void learn_structure()
     Passenger *p; 
     p = new Passenger; // p points to the new Passenger
 
-    p->name = 'Vy'; 
+    p->name = "Vy"; 
     p->mealPref = REGULAR; 
 
     delete p; // destroy the object p points to 
@@ -102,11 +102,115 @@ void learn_argument_passing(int value, int &ref)
 {
     value++;        // Has no effect on the actual argument
     ref++;          // Modifies the actual argument 
+
+    cout << value << endl;
+    cout << ref << endl;
+
 }
+
+// void overloading_new_operators(
+//     bool operator==(const Passenger &x, const Passenger &y) 
+//     {
+//         return x.name == y.name 
+//         && x.mealPref == y.mealPref 
+//         ...
+//     }
+// )
+
+
+/* Classes
+- A class consists of members:
+    + Members that are variables or constants are data members
+    + Members that are functions are called member functions (methods)
+
+- Access Control:
+    + Public: they are accessible from outside the class
+    + Private: they are accessible only from within the class
+
+- All external access to class objects takes place through the public member,
+or public interface 
+*/
+
+
+class Counter {
+public:
+    Counter();                  // initialization
+    int getCount();             // get the current count 
+    void increaseBy(int x);     // add x to count 
+
+private:
+    int count;
+};
+
+Counter::Counter()
+{
+    count = 0;
+}
+
+int Counter::getCount()
+{
+    return count;
+}
+
+void Counter::increaseBy(int x) 
+{
+    count += x;
+}
+
+
+class Passenger {
+public:
+    Passenger();
+    bool isFrequentFlyer() const; 
+    /*
+    - The keyword "const" indicates that the member function isFreqFlyer()
+    is an accessor (only read class data)
+    */
+private:
+    bool isFreqFlyer;
+};
+
+bool Passenger::isFrequentFlyer() const {
+    return isFreqFlyer;
+}
+
+
+
+/* Classes - Constructors */
+
+class Passenger {
+public:
+    Passenger(); // default constructor
+    Passenger(const string& nm, MealType mp, const string& ffn = "NONE");
+    Passenger(const Passenger& pass); // copy constructor
+    // ...
+};
+Passenger::Passenger() {
+    name = "--NO NAME--";
+    mealPref = NO PREF; isFreqFlyer = false; freqFlyerNo = "NONE";
+}
+Passenger::Passenger(const string& nm, MealType mp, const string& ffn) {
+    name = nm; mealPref = mp;
+    isFreqFlyer = (ffn != "NONE"); // true only if ffn given
+    freqFlyerNo = ffn;
+}
+Passenger::Passenger(const Passenger& pass) {
+    name = pass.name; mealPref = pass.mealPref;
+    isFreqFlyer = pass.isFreqFlyer; freqFlyerNo = pass.freqFlyerNo;
+}
+
+
+
+
+
 int main() 
 { 
 
-    learn_structure();
+    int a = 10, b = 20;
 
+    learn_argument_passing(a, b);
+
+    cout << a << endl;
+    cout << b << endl;
     return 0;
 }
