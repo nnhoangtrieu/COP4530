@@ -104,6 +104,29 @@ int IntDLList::deleteFromTail()
     return value;
 }
 
+void IntDLList::insertInOrder(int value) {
+    IntDLLNode *newNode = new IntDLLNode(value);
+
+    // If the list is empty or the head node's value is greater than the given value
+    if (ListHead == nullptr || ListHead->info > value) {
+        newNode->next = ListHead;
+        ListHead = newNode;
+    } else {
+        // Find the node before the point of insertion
+        IntDLLNode *current = ListHead;
+        while (current->next != nullptr && current->next->info < value) {
+            current = current->next;
+        }
+        // Insert the new node after the current node
+        newNode->next = current->next;
+        current->next = newNode;
+    }
+}
+
+
+
+
+
 void IntDLList::display()
 {
    for (IntDLLNode *p = ListHead; p != nullptr; p = p->next)
@@ -113,15 +136,18 @@ void IntDLList::display()
    cout << "nullptr" << endl;
 }
 
-int main()
-{
+
+
+
+
+int main() {
     IntDLList list;
-    list.addToHead(1);
-    list.addToHead(2);
-    list.addToHead(3);
-    list.addToHead(4);
-    list.addToTail(10);
-    list.deleteFromHead();
-    list.deleteFromTail();
+    list.insertInOrder(9);
+    list.insertInOrder(8);
+    list.insertInOrder(0);
+    list.insertInOrder(3);
+    list.display();
+
+    list.deleteNode(8);
     list.display();
 }
