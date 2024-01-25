@@ -12,6 +12,7 @@ public:
     {
         return ListHead->next == ListHead;
     }
+    void display();
     void addToHead(int);
     void insertInOrder (int);
     void addToTail(int);
