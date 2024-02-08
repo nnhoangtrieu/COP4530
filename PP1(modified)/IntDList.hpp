@@ -26,6 +26,7 @@ public:
     void deleteNode(int);
     bool isInList(int) const;
     string addToString() const;
+    void display();
 
 private:
     IntDLLNode* ListHead;

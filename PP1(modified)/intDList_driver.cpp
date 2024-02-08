@@ -11,12 +11,19 @@ int main()
 
 
     IntDLList myList;
+
+
+
+
+
+
+
+
     myList.insertInOrder(1);
     myList.insertInOrder(2);
     myList.insertInOrder(9);
     myList.insertInOrder(4);
     myList.insertInOrder(6);
-
     myList.insertInOrder(3);
 
     cout<< myList.addToString()<<endl;//should print "123469"
@@ -25,7 +32,6 @@ int main()
     myList.deleteFromHead();
 
     cout<< myList.addToString()<<endl;//should print "23469"
-
 
     myList.deleteNode(4);
 
