@@ -12,13 +12,6 @@ int main()
 
     IntDLList myList;
 
-
-
-
-
-
-
-
     myList.insertInOrder(1);
     myList.insertInOrder(2);
     myList.insertInOrder(9);

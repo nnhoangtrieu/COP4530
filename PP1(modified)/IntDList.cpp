@@ -1,5 +1,4 @@
 /*
-.cpp file that implements intDList.hpp file definitions. Only modify this file
 Name: Trieu Nguyen / Tran Ho
 */
 
@@ -68,12 +67,12 @@ void IntDLList::addToHead(int value)
 
 {
     IntDLLNode* newNode = new IntDLLNode(value);
-    if (ListHead == nullptr) ListHead = newNode; // If the list has no node, the newNode become the Head
+    if (ListHead == nullptr) ListHead = newNode; // if the list has no node, the newNode become the Head
     else 
     {
-        newNode->next = ListHead; // Set pointer of newNode to point to Head
-        ListHead->prev = newNode; // Set pointer of Head to point back to newNode
-        ListHead = newNode;       // Set the Head to be the newNode
+        newNode->next = ListHead; // set pointer of newNode to point to Head
+        ListHead->prev = newNode; // set pointer of Head to point back to newNode
+        ListHead = newNode;       // set the Head to be the newNode
     }
 }
 
